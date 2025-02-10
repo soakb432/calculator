@@ -22,6 +22,9 @@ function divide(a, b) {
     return a / b;
 }
 
-function operate (operator, firstNum, secondNum) {
-    
+function operate(operator, firstNum, secondNum) {
+    switch (operator) {
+        case "+":
+            return add(firstNum, secondNum);
+    }
 }
