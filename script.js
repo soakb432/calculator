@@ -1,3 +1,9 @@
+// -- OPERATION VARIABLES -- //
+
+let firstOperand;
+let operator;
+let secondOperand;
+
 // -- MATH OPERATIONS -- //
 
 function add(a, b) {
