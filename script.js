@@ -1,8 +1,11 @@
 // -- OPERATION VARIABLES -- //
 
-let firstOperand;
-let operator;
-let secondOperand;
+const DEFAULT_NUM = 0;
+const DEFAULT_OPERATOR = "";
+
+let firstOperand = DEFAULT_NUM;
+let operator = "";
+let secondOperand = DEFAULT_NUM;
 
 // -- MATH OPERATIONS -- //
 
