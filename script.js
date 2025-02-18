@@ -37,3 +37,18 @@ function operate(operator, firstNum, secondNum) {
             return divide(firstNum, secondNum);
     }
 }
+
+// -- DISPLAY POPULATION -- //
+
+const display = document.querySelector(".display");
+const keypad = document.querySelectorAll(".keyboard .number");
+
+keypad.forEach((key) => {
+    key.addEventListener("click", () => {
+        if (display.textContent === "0") {
+            display.textContent = key.textContent;
+        } else {
+            display.textContent += key.textContent;
+        }
+    })
+});
