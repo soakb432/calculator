@@ -3,6 +3,7 @@
 let firstOperand = null;
 let operator = null
 let secondOperand = null;
+let result = null;
 
 // -- MATH OPERATIONS -- //
 
