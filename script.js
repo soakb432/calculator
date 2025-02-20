@@ -38,9 +38,9 @@ function operate(operator, firstNum, secondNum) {
 // -- DISPLAY POPULATION -- //
 
 const display = document.querySelector(".display");
-const keypad = document.querySelectorAll(".keyboard .number");
+const numKey = document.querySelectorAll(".number");
 
-keypad.forEach((key) => {
+numKey.forEach((key) => {
     key.addEventListener("click", () => {
         if (display.textContent === "0") {
             display.textContent = key.textContent;
@@ -49,3 +49,5 @@ keypad.forEach((key) => {
         }
     })
 });
+
+const opKey = document.querySelectorAll(".operator");
