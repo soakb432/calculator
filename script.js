@@ -51,3 +51,12 @@ numKey.forEach((key) => {
 });
 
 const opKey = document.querySelectorAll(".operator");
+
+opKey.forEach((key) => {
+    key.addEventListener("click", () => {
+        if (key.textContent !== "=") {
+            firstOperand = parseInt(display.textContent);
+            operator = key.textContent;
+        }
+    })
+});
