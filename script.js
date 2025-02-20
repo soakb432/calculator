@@ -57,6 +57,7 @@ opKey.forEach((key) => {
         if (key.textContent !== "=") {
             firstOperand = parseInt(display.textContent);
             operator = key.textContent;
+            display.textContent = `${firstOperand} ${operator} `;
         }
     })
 });
