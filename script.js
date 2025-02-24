@@ -59,6 +59,7 @@ opKey.forEach((key) => {
         if (firstOperand === null) {
             firstOperand = parseInt(display.textContent);
         }
+        secondOperand = parseInt(display.textContent.split(operator)[1]);
         display.textContent = `${firstOperand} ${operator} `;
     })
 });
