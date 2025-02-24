@@ -55,7 +55,6 @@ const opKey = document.querySelectorAll(".operator");
 
 opKey.forEach((key) => {
     key.addEventListener("click", () => {
-        operator = key.textContent;
         if (firstOperand === null) {
             firstOperand = parseInt(display.textContent);
         }
@@ -65,6 +64,7 @@ opKey.forEach((key) => {
             firstOperand = result;
             secondOperand = null;
         }
+        operator = key.textContent;
         display.textContent = `${firstOperand} ${operator} `;
     })
 });
