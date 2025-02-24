@@ -60,6 +60,11 @@ opKey.forEach((key) => {
             firstOperand = parseInt(display.textContent);
         }
         secondOperand = parseInt(display.textContent.split(operator)[1]);
+        if (!!secondOperand) {
+            result = operate(operator, firstOperand, secondOperand);
+            firstOperand = result;
+            secondOperand = null;
+        }
         display.textContent = `${firstOperand} ${operator} `;
     })
 });
