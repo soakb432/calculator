@@ -55,10 +55,10 @@ const opKey = document.querySelectorAll(".operator");
 
 opKey.forEach((key) => {
     key.addEventListener("click", () => {
-        if (key.textContent !== "=") {
+        operator = key.textContent;
+        if (firstOperand === null) {
             firstOperand = parseInt(display.textContent);
-            operator = key.textContent;
-            display.textContent = `${firstOperand} ${operator} `;
         }
+        display.textContent = `${firstOperand} ${operator} `;
     })
 });
