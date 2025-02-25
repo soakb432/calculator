@@ -40,6 +40,7 @@ function operate(operator, firstNum, secondNum) {
 
 const display = document.querySelector(".display");
 const numKey = document.querySelectorAll(".number");
+const opKey = document.querySelectorAll(".operator");
 
 numKey.forEach((key) => {
     key.addEventListener("click", () => {
@@ -51,15 +52,13 @@ numKey.forEach((key) => {
     })
 });
 
-const opKey = document.querySelectorAll(".operator");
-
 opKey.forEach((key) => {
     key.addEventListener("click", () => {
         if (firstOperand === null) {
             firstOperand = parseInt(display.textContent);
         }
         secondOperand = parseInt(display.textContent.split(operator)[1]);
-        if (!!secondOperand || secondOperand === 0) {
+        if (secondOperand || secondOperand === 0) {
             result = operate(operator, firstOperand, secondOperand);
             firstOperand = result;
             secondOperand = null;
