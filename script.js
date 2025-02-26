@@ -63,7 +63,12 @@ opKey.forEach((key) => {
             firstOperand = result;
             secondOperand = null;
         }
-        operator = key.textContent;
-        display.textContent = `${firstOperand} ${operator} `;
+        display.textContent = `${firstOperand}`; 
+        if (key.textContent !== "=") {
+            operator = key.textContent;
+            display.textContent += ` ${operator} `;
+        } else {
+            firstOperand = null;
+        }
     })
 });
