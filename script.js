@@ -58,7 +58,7 @@ opKey.forEach((key) => {
         if (firstOperand === null) {
             firstOperand = parseInt(display.textContent);
         }
-        secondOperand = parseInt(display.textContent.split(operator)[1]);
+        secondOperand = parseInt(display.textContent.split(" ")[2]);
         if (secondOperand || secondOperand === 0) {
             result = operate(operator, firstOperand, secondOperand);
             firstOperand = result;
