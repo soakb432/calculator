@@ -75,6 +75,16 @@ opKey.forEach((key) => {
     })
 });
 
+funcKey.forEach((key) => {
+    key.addEventListener("click", () => {
+        switch (key.textContent) {
+            case "AC":
+                clearCalculator();
+                break;
+        }
+    })
+})
+
 // -- FUNCTIONS -- //
 
 function clearCalculator() {
