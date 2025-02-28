@@ -44,8 +44,9 @@ const opKey = document.querySelectorAll(".operator");
 
 numKey.forEach((key) => {
     key.addEventListener("click", () => {
-        if (display.textContent === "0") {
+        if (display.textContent === "0" || display.textContent === `${result}`) {
             display.textContent = key.textContent;
+            result = null;
         } else {
             display.textContent += key.textContent;
         }
