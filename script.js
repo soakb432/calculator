@@ -74,3 +74,13 @@ opKey.forEach((key) => {
         }
     })
 });
+
+// -- FUNCTIONS -- //
+
+function clearCalculator() {
+    display.textContent = "0";
+    firstOperand = null;
+    operator = null
+    secondOperand = null;
+    result = null;
+}
