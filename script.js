@@ -41,6 +41,7 @@ function operate(operator, firstNum, secondNum) {
 const display = document.querySelector(".display");
 const numKey = document.querySelectorAll(".number");
 const opKey = document.querySelectorAll(".operator");
+const funcKey = document.querySelectorAll(".function");
 
 numKey.forEach((key) => {
     key.addEventListener("click", () => {
