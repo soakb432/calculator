@@ -1,3 +1,10 @@
 body {
-    margin: 0; /* KEEP */
+    margin: 0;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
