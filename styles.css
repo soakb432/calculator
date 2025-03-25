@@ -23,6 +23,7 @@ body {
 
 .display {
     flex: 1;
+    width: inherit;
     border: blue 1px solid;
 }
 
