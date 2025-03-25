@@ -33,4 +33,5 @@ body {
 .keyboard {
     flex: 6;
     border: red 1px solid;
+    width: inherit;
 }
