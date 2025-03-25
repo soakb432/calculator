@@ -34,4 +34,10 @@ body {
     flex: 6;
     border: red 1px solid;
     width: inherit;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.keyboard * {
+    flex: 1 1 calc(25%);
 }
