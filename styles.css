@@ -22,9 +22,11 @@ body {
 }
 
 .display {
+    flex: 1;
     border: blue 1px solid;
 }
 
 .keyboard {
+    flex: 6;
     border: red 1px solid;
 }
