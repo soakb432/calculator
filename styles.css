@@ -26,6 +26,7 @@ body {
     width: inherit;
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
     border: blue 1px solid;
 }
 
