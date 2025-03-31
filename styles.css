@@ -36,8 +36,9 @@ body {
     width: inherit;
     display: flex;
     flex-wrap: wrap;
+    gap: 5px;
 }
 
 .keyboard * {
-    flex: 1 1 calc(25%);
+    flex: 1 1 calc(25% - 5px);
 }
