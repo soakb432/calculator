@@ -1,3 +1,11 @@
+:root {
+    --text: white;
+    --calc-bg: #273550;
+    --key-bg: #265997;
+    --func-bg: #40adcd;
+    --display-bg: black;
+}
+
 body {
     margin: 0;
 }
