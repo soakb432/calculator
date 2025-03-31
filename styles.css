@@ -26,7 +26,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
     padding: 20px;
     gap: 20px;
     height: 550px;
@@ -40,14 +39,12 @@ body {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    border: blue 1px solid;
     background-color: var(--display-bg);
     color: var(--display-text);
 }
 
 .keyboard {
     flex: 6;
-    border: red 1px solid;
     width: inherit;
     display: flex;
     flex-wrap: wrap;
@@ -61,4 +58,8 @@ body {
 
 .keyboard .function {
     background-color: var(--func-bg);
+}
+
+.calculator, .display {
+    border-radius: 10px;
 }
