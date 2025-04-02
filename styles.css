@@ -45,7 +45,7 @@ body {
 }
 
 .keyboard {
-    flex: 6;
+    flex: 4;
     width: inherit;
     display: flex;
     flex-wrap: wrap;
