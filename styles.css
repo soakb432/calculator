@@ -51,14 +51,21 @@ body {
     width: inherit;
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 10px 5px;
 }
 
 button {
-    flex: 1 1 calc(25% - 5px);
+    flex: 1 1 calc(25% - 10px);
     background-color: var(--key-bg);
     font-size: 1.7rem;
     border: 0;
+    transform: translateY(-5px);
+    box-shadow: 0 5px white;
+}
+
+button:active {
+    transform: none;
+    box-shadow: none;
 }
 
 .keyboard .function {
