@@ -52,16 +52,17 @@ body {
     gap: 5px;
 }
 
-.keyboard * {
+button {
     flex: 1 1 calc(25% - 5px);
     background-color: var(--key-bg);
     font-size: 1.7rem;
+    border: 0;
 }
 
 .keyboard .function {
     background-color: var(--func-bg);
 }
 
-.calculator, .display {
+.calculator, .display, button {
     border-radius: 10px;
 }
