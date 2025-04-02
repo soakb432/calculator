@@ -54,13 +54,21 @@ body {
     gap: 10px 5px;
 }
 
+.function {
+    --shadow-color: #40accda8;
+}
+
+.number, .operator {
+    --shadow-color: #26599785;
+}
+
 button {
     flex: 1 1 calc(25% - 10px);
     background-color: var(--key-bg);
     font-size: 1.7rem;
     border: 0;
     transform: translateY(-5px);
-    box-shadow: 0 5px white;
+    box-shadow: 0 5px var(--shadow-color);
 }
 
 button:active {
