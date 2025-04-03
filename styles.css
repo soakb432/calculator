@@ -1,13 +1,11 @@
 :root {
-    --text: white;
+    --key-bg: white;
+    --shadow-color: rgba(255, 255, 255, 0.705);
     --calc-bg: #273550;
-    --key-bg: #265997;
-    --func-bg: #40adcd;
-    --display-bg: black;
 }
 
 * {
-    color: var(--text);
+    color: white;
     font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -42,8 +40,7 @@ body {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    background-color: var(--display-bg);
-    color: var(--display-text);
+    background-color: black;
 }
 
 .keyboard {
@@ -54,12 +51,14 @@ body {
     gap: 10px 5px;
 }
 
-.function {
-    --shadow-color: #40accda8;
+.number {
+    --key-bg: #265997;
+    --shadow-color: #26599785;
 }
 
-.number, .operator {
-    --shadow-color: #26599785;
+.function {
+    --key-bg: #40adcd;
+    --shadow-color: #40accda8;
 }
 
 button {
@@ -74,10 +73,6 @@ button {
 button:active {
     transform: none;
     box-shadow: none;
-}
-
-.keyboard .function {
-    background-color: var(--func-bg);
 }
 
 .calculator, .display, button {
