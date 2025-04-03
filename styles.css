@@ -61,6 +61,11 @@ body {
     --shadow-color: #40accda8;
 }
 
+.operator {
+    --key-bg: #5c7f6b;
+    --shadow-color: #5c7f6b85;
+}
+
 button {
     flex: 1 1 calc(25% - 10px);
     background-color: var(--key-bg);
