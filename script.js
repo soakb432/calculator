@@ -59,12 +59,12 @@ opKey.forEach((key) => {
     key.addEventListener("click", () => {
         if (firstOperand === null) {
             firstOperand = parseFloat(mainDisplay.textContent);
+        } else {
+            secondOperand = parseFloat(mainDisplay.textContent);
         }
-        secondOperand = parseFloat(mainDisplay.textContent.split(" ")[2]);
         if (secondOperand || secondOperand === 0) {
             result = operate(operator, firstOperand, secondOperand);
             firstOperand = result;
-            secondOperand = null;
         }
         if (key.textContent !== "=") {
             operator = key.textContent;
