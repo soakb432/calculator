@@ -66,10 +66,9 @@ opKey.forEach((key) => {
             firstOperand = result;
             secondOperand = null;
         }
-        mainDisplay.textContent = `${firstOperand}`; 
         if (key.textContent !== "=") {
             operator = key.textContent;
-            mainDisplay.textContent += ` ${operator} `;
+            subDisplay.textContent = `${firstOperand} ${operator} `;
         } else {
             firstOperand = null;
         }
