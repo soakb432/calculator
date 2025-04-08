@@ -69,6 +69,7 @@ opKey.forEach((key) => {
         if (key.textContent !== "=") {
             operator = key.textContent;
             subDisplay.textContent = `${firstOperand} ${operator} `;
+            mainDisplay.textContent = "0";
         } else {
             firstOperand = null;
         }
@@ -89,6 +90,7 @@ funcKey.forEach((key) => {
 
 function clearCalculator() {
     mainDisplay.textContent = "0";
+    subDisplay.textContent = "0";
     firstOperand = null;
     operator = null
     secondOperand = null;
