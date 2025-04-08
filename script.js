@@ -39,6 +39,7 @@ function operate(operator, firstNum, secondNum) {
 // -- DISPLAY POPULATION -- //
 
 const mainDisplay = document.querySelector(".display .main");
+const subDisplay = document.querySelector(".display .sub");
 const numKey = document.querySelectorAll(".number");
 const opKey = document.querySelectorAll(".operator");
 const funcKey = document.querySelectorAll(".function");
