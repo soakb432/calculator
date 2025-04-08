@@ -38,18 +38,18 @@ function operate(operator, firstNum, secondNum) {
 
 // -- DISPLAY POPULATION -- //
 
-const display = document.querySelector(".display");
+const mainDisplay = document.querySelector(".display .main");
 const numKey = document.querySelectorAll(".number");
 const opKey = document.querySelectorAll(".operator");
 const funcKey = document.querySelectorAll(".function");
 
 numKey.forEach((key) => {
     key.addEventListener("click", () => {
-        if (display.textContent === "0" || display.textContent === `${result}`) {
-            display.textContent = key.textContent;
+        if (mainDisplay.textContent === "0" || mainDisplay.textContent === `${result}`) {
+            mainDisplay.textContent = key.textContent;
             result = null;
         } else {
-            display.textContent += key.textContent;
+            mainDisplay.textContent += key.textContent;
         }
     })
 });
@@ -57,18 +57,18 @@ numKey.forEach((key) => {
 opKey.forEach((key) => {
     key.addEventListener("click", () => {
         if (firstOperand === null) {
-            firstOperand = parseFloat(display.textContent);
+            firstOperand = parseFloat(mainDisplay.textContent);
         }
-        secondOperand = parseFloat(display.textContent.split(" ")[2]);
+        secondOperand = parseFloat(mainDisplay.textContent.split(" ")[2]);
         if (secondOperand || secondOperand === 0) {
             result = operate(operator, firstOperand, secondOperand);
             firstOperand = result;
             secondOperand = null;
         }
-        display.textContent = `${firstOperand}`; 
+        mainDisplay.textContent = `${firstOperand}`; 
         if (key.textContent !== "=") {
             operator = key.textContent;
-            display.textContent += ` ${operator} `;
+            mainDisplay.textContent += ` ${operator} `;
         } else {
             firstOperand = null;
         }
@@ -88,7 +88,7 @@ funcKey.forEach((key) => {
 // -- FUNCTIONS -- //
 
 function clearCalculator() {
-    display.textContent = "0";
+    mainDisplay.textContent = "0";
     firstOperand = null;
     operator = null
     secondOperand = null;
