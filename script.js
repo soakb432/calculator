@@ -57,24 +57,27 @@ numKey.forEach((key) => {
 
 opKey.forEach((key) => {
     key.addEventListener("click", () => {
-        if (firstOperand === null) {
-            firstOperand = parseFloat(mainDisplay.textContent);
-        } else {
-            secondOperand = parseFloat(mainDisplay.textContent);
-        }
+        if (mainDisplay.textContent) {
+            if (firstOperand === null) {
+                firstOperand = parseFloat(mainDisplay.textContent);
+            } else {
+                secondOperand = parseFloat(mainDisplay.textContent);
+            }
+            
+            if (secondOperand || secondOperand === 0) {
+                result = operate(operator, firstOperand, secondOperand);
+                firstOperand = result;
+            }
 
-        if (secondOperand || secondOperand === 0) {
-            result = operate(operator, firstOperand, secondOperand);
-            firstOperand = result;
-        }
-        if (key.textContent !== "=") {
-            operator = key.textContent;
-            subDisplay.textContent = `${firstOperand} ${operator} `;
-            mainDisplay.textContent = "0";
-        } else {
-            subDisplay.textContent += `${secondOperand} =`;
-            mainDisplay.textContent = result;
-            firstOperand = null;
+            if (key.textContent !== "=") {
+                operator = key.textContent;
+                subDisplay.textContent = `${firstOperand} ${operator} `;
+                mainDisplay.textContent = "0";
+            } else {
+                subDisplay.textContent += `${secondOperand} =`;
+                mainDisplay.textContent = result;
+                firstOperand = null;
+            }
         }
     })
 });
@@ -92,8 +95,8 @@ funcKey.forEach((key) => {
 // -- FUNCTIONS -- //
 
 function clearCalculator() {
-    mainDisplay.textContent = "0";
-    subDisplay.textContent = "0";
+    mainDisplay.textContent = "";
+    subDisplay.textContent = "";
     firstOperand = null;
     operator = null
     secondOperand = null;
