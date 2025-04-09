@@ -61,7 +61,7 @@ opKey.forEach((key) => {
         if (mainDisplay.textContent) {
             if (firstOperand === null) {
                 firstOperand = parseFloat(mainDisplay.textContent);
-            } else {
+            } else if (secondOperand === null) {
                 secondOperand = parseFloat(mainDisplay.textContent);
             }
         }
@@ -82,6 +82,12 @@ opKey.forEach((key) => {
 
 eqKey.addEventListener("click", () => {
     let isOperable = ((firstOperand || firstOperand === 0) && (operator !== null) && (mainDisplay.textContent));
+    if (isOperable) {
+        secondOperand = parseFloat(mainDisplay.textContent);
+        result = operate(operator, firstOperand, secondOperand);
+        subDisplay.textContent = `${firstOperand} ${operator} ${secondOperand} =`;
+        mainDisplay.textContent = `${result}`;
+    }
 });
 
 funcKey.forEach((key) => {
