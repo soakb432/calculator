@@ -42,6 +42,7 @@ const mainDisplay = document.querySelector(".display .main");
 const subDisplay = document.querySelector(".display .sub");
 const numKey = document.querySelectorAll(".number");
 const opKey = document.querySelectorAll(".operator");
+const eqKey = document.querySelector(".equal");
 const funcKey = document.querySelectorAll(".function");
 
 numKey.forEach((key) => {

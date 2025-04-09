@@ -62,7 +62,7 @@ body {
     --shadow-color: #40accda8;
 }
 
-.operator {
+.operator, .equal {
     --key-bg: #5c7f6b;
     --shadow-color: #5c7f6b85;
 }
