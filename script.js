@@ -80,6 +80,10 @@ opKey.forEach((key) => {
     })
 });
 
+eqKey.addEventListener("click", () => {
+    let isOperable = ((firstOperand || firstOperand === 0) && (operator !== null) && (mainDisplay.textContent));
+});
+
 funcKey.forEach((key) => {
     key.addEventListener("click", () => {
         switch (key.textContent) {
@@ -88,7 +92,7 @@ funcKey.forEach((key) => {
                 break;
         }
     })
-})
+});
 
 // -- FUNCTIONS -- //
 
