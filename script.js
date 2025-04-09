@@ -48,6 +48,7 @@ const funcKey = document.querySelectorAll(".function");
 numKey.forEach((key) => {
     key.addEventListener("click", () => {
         if (mainDisplay.textContent === "0" || mainDisplay.textContent === `${result}`) {
+            subDisplay.textContent = "";
             mainDisplay.textContent = key.textContent;
             result = null;
         } else {
@@ -81,12 +82,14 @@ opKey.forEach((key) => {
 });
 
 eqKey.addEventListener("click", () => {
-    let isOperable = ((firstOperand || firstOperand === 0) && (operator !== null) && (mainDisplay.textContent));
+    let isOperable = ((firstOperand || firstOperand === 0) && (operator !== null) && (mainDisplay.textContent) && (result === null));
     if (isOperable) {
         secondOperand = parseFloat(mainDisplay.textContent);
         result = operate(operator, firstOperand, secondOperand);
         subDisplay.textContent = `${firstOperand} ${operator} ${secondOperand} =`;
         mainDisplay.textContent = `${result}`;
+        firstOperand = null;
+        secondOperand = null;
     }
 });
 
