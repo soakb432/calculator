@@ -66,7 +66,7 @@ opKey.forEach((key) => {
                 secondOperand = parseFloat(mainDisplay.textContent);
             }
         }
-
+        
         if (secondOperand || secondOperand === 0) {
             result = operate(operator, firstOperand, secondOperand);
             firstOperand = result;
@@ -76,6 +76,7 @@ opKey.forEach((key) => {
         if (firstOperand || firstOperand === 0) {
             subDisplay.textContent = `${firstOperand} ${operator} `;
             secondOperand = null;
+            result = null;
         }
         mainDisplay.textContent = "";
     })
