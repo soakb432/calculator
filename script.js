@@ -65,26 +65,18 @@ opKey.forEach((key) => {
                 secondOperand = parseFloat(mainDisplay.textContent);
             }
         }
-        
+
         if (secondOperand || secondOperand === 0) {
             result = operate(operator, firstOperand, secondOperand);
             firstOperand = result;
         }
         
-        if (key.textContent !== "=") {
-            operator = key.textContent;
-            if (firstOperand || firstOperand === 0) {
-                subDisplay.textContent = `${firstOperand} ${operator} `;
-                secondOperand = null;
-            }
-            mainDisplay.textContent = "";
-            
-        } else if (secondOperand || secondOperand === 0) {
-            subDisplay.textContent += `${secondOperand} =`;
-            mainDisplay.textContent = result;
-            firstOperand = null;
+        operator = key.textContent;
+        if (firstOperand || firstOperand === 0) {
+            subDisplay.textContent = `${firstOperand} ${operator} `;
             secondOperand = null;
         }
+        mainDisplay.textContent = "";
     })
 });
 
