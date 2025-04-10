@@ -100,6 +100,9 @@ funcKey.forEach((key) => {
             case "AC":
                 clearCalculator();
                 break;
+            case "+/-":
+                convertPositiveToNegative();
+                break;
         }
     })
 });
@@ -113,4 +116,10 @@ function clearCalculator() {
     operator = null
     secondOperand = null;
     result = null;
+}
+
+function convertPositiveToNegative() {
+    if (mainDisplay.textContent && result === null) {
+        mainDisplay.textContent = `${mainDisplay.textContent * -1}`;
+    }
 }
