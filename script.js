@@ -109,6 +109,9 @@ funcKey.forEach((key) => {
             case "+/-":
                 convertPositiveToNegative();
                 break;
+            case ".":
+                convertToDecimal();
+                break;
         }
     })
 });
@@ -127,5 +130,11 @@ function clearCalculator() {
 function convertPositiveToNegative() {
     if (mainDisplay.textContent && result === null) {
         mainDisplay.textContent = `${mainDisplay.textContent * -1}`;
+    }
+}
+
+function convertToDecimal() {
+    if (mainDisplay.textContent && result === null) {
+        mainDisplay.textContent += ".";
     }
 }
