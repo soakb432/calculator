@@ -23,6 +23,10 @@ function divide(a, b) {
     return a / b;
 }
 
+function modulo(a, b) {
+    return a % b;
+}
+
 function operate(operator, firstNum, secondNum) {
     switch (operator) {
         case "+":
@@ -33,6 +37,8 @@ function operate(operator, firstNum, secondNum) {
             return multiply(firstNum, secondNum);
         case "/":
             return divide(firstNum, secondNum);
+        case "%":
+            return modulo(firstNum, secondNum);
     }
 }
 
