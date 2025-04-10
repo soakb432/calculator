@@ -46,6 +46,21 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.main, .sub {
+    border: 1px solid white;
+}
+
+.sub {
+    min-height: 25px;
+    font-size: 20px;
+}
+
+.main {
+    min-height: 36px;
+    font-size: 30px;
+}
+
+
 .keyboard {
     flex: 4;
     width: inherit;
