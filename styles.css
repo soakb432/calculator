@@ -74,7 +74,8 @@ button {
     background-color: var(--key-bg);
     font-size: 1.7rem;
     border: 0;
-    transform: translateY(-5px);
+    transform: translateY(0);
+    transition: all 0.05s ease;
     box-shadow:
         inset 0 -3px rgba(0, 0, 0, 0.2),
         inset 0 3px rgba(255, 255, 255, 0.1),
@@ -82,7 +83,7 @@ button {
 }
 
 button:active {
-    transform: none;
+    transform: translateY(4px);
     box-shadow: none;
 }
 
