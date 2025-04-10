@@ -134,7 +134,11 @@ function convertPositiveToNegative() {
 }
 
 function convertToDecimal() {
-    if (mainDisplay.textContent && result === null) {
-        mainDisplay.textContent += ".";
+    if (result === null) {
+        if (mainDisplay.textContent) {
+            mainDisplay.textContent += ".";
+        } else {
+            mainDisplay.textContent = "0.";
+        }
     }
 }
