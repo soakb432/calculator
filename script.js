@@ -134,13 +134,17 @@ function convertPositiveToNegative() {
 }
 
 function convertToDecimal() {
-    if (!mainDisplay.textContent.includes(".")) {
-        if (result === null) {
-            if (mainDisplay.textContent) {
-                mainDisplay.textContent += ".";
-            } else {
-                mainDisplay.textContent = "0.";
-            }
+    if (result || mainDisplay.textContent === `${result}`) {
+        subDisplay.textContent = "";
+        mainDisplay.textContent = "";
+        result = null;
+    }
+
+    if (mainDisplay.textContent) {
+        if (!mainDisplay.textContent.includes(".")) {
+            mainDisplay.textContent += ".";
         }
+    } else {
+        mainDisplay.textContent = "0.";
     }
 }
