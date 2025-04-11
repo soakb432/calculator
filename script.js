@@ -154,6 +154,10 @@ function convertToDecimal() {
 
 function clearInput() {
     let currInput = mainDisplay.textContent.split("");
-    currInput.pop();
-    mainDisplay.textContent = currInput.join("");
+    if (currInput[0] === "-" && currInput.length === 2) {
+        mainDisplay.textContent = "";
+    } else {
+        currInput.pop();
+        mainDisplay.textContent = currInput.join("");
+    }
 }
