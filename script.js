@@ -106,6 +106,9 @@ funcKey.forEach((key) => {
             case "AC":
                 clearCalculator();
                 break;
+            case "C":
+                clearInput();
+                break;
             case "+/-":
                 convertPositiveToNegative();
                 break;
@@ -147,4 +150,10 @@ function convertToDecimal() {
     } else {
         mainDisplay.textContent = "0.";
     }
+}
+
+function clearInput() {
+    let currInput = mainDisplay.textContent.split("");
+    currInput.pop();
+    mainDisplay.textContent = currInput.join("");
 }
