@@ -130,7 +130,27 @@ function clearCalculator() {
     result = null;
 }
 
+function clearInput() {
+    if (result || mainDisplay.textContent === `${result}`) {
+        subDisplay.textContent = "";
+        result = null;
+    }
+
+    let currInput = mainDisplay.textContent.split("");
+    if (currInput[0] === "-" && currInput.length === 2) {
+        mainDisplay.textContent = "";
+    } else {
+        currInput.pop();
+        mainDisplay.textContent = currInput.join("");
+    }
+}
+
 function convertPositiveToNegative() {
+    if (result || mainDisplay.textContent === `${result}`) {
+        subDisplay.textContent = "";
+        result = null;
+    }
+
     if (mainDisplay.textContent && result === null) {
         mainDisplay.textContent = `${mainDisplay.textContent * -1}`;
     }
@@ -143,21 +163,9 @@ function convertToDecimal() {
         result = null;
     }
 
-    if (mainDisplay.textContent) {
-        if (!mainDisplay.textContent.includes(".")) {
-            mainDisplay.textContent += ".";
-        }
+    if (mainDisplay.textContent && !mainDisplay.textContent.includes(".")) {
+        mainDisplay.textContent += ".";
     } else {
         mainDisplay.textContent = "0.";
-    }
-}
-
-function clearInput() {
-    let currInput = mainDisplay.textContent.split("");
-    if (currInput[0] === "-" && currInput.length === 2) {
-        mainDisplay.textContent = "";
-    } else {
-        currInput.pop();
-        mainDisplay.textContent = currInput.join("");
     }
 }
