@@ -165,7 +165,7 @@ function convertToDecimal() {
 
     if (mainDisplay.textContent && !mainDisplay.textContent.includes(".")) {
         mainDisplay.textContent += ".";
-    } else {
+    } else if (mainDisplay.textContent === "") {
         mainDisplay.textContent = "0.";
     }
 }
