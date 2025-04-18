@@ -72,12 +72,12 @@ body {
     --shadow-color: #26599785;
 }
 
-.function {
+.function, .equal {
     --key-bg: #40adcd;
     --shadow-color: #40accda8;
 }
 
-.operator, .equal {
+.operator {
     --key-bg: #5c7f6b;
     --shadow-color: #5c7f6b85;
 }
