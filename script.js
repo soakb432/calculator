@@ -4,6 +4,7 @@ let firstOperand = null;
 let operator = null
 let secondOperand = null;
 let result = null;
+const errorMessage = "ERROR";
 
 // -- MATH OPERATIONS -- //
 
@@ -74,12 +75,17 @@ opKey.forEach((key) => {
         }
         
         if (secondOperand || secondOperand === 0) {
-            result = operate(operator, firstOperand, secondOperand);
-            firstOperand = result;
+            if (secondOperand === 0 && (operator === "/" || operator === "%")) {
+                alert(errorMessage);
+                clearCalculator();
+            } else {
+                result = operate(operator, firstOperand, secondOperand);
+                firstOperand = result;
+            }
         }
         
-        operator = key.textContent;
         if (firstOperand || firstOperand === 0) {
+            operator = key.textContent;
             subDisplay.textContent = `${firstOperand} ${operator} `;
             secondOperand = null;
             result = null;
@@ -92,11 +98,16 @@ eqKey.addEventListener("click", () => {
     let isOperable = ((firstOperand || firstOperand === 0) && (operator !== null) && (mainDisplay.textContent) && (result === null));
     if (isOperable) {
         secondOperand = parseFloat(mainDisplay.textContent);
-        result = operate(operator, firstOperand, secondOperand);
-        subDisplay.textContent = `${firstOperand} ${operator} ${secondOperand} =`;
-        mainDisplay.textContent = `${result}`;
-        firstOperand = null;
-        secondOperand = null;
+        if (secondOperand === 0 && (operator === "/" || operator === "%")) {
+            alert(errorMessage);
+            clearCalculator();
+        } else {
+            result = operate(operator, firstOperand, secondOperand);
+            subDisplay.textContent = `${firstOperand} ${operator} ${secondOperand} =`;
+            mainDisplay.textContent = `${result}`;
+            firstOperand = null;
+            secondOperand = null;
+        }
     }
 });
 
@@ -125,7 +136,7 @@ function clearCalculator() {
     mainDisplay.textContent = "";
     subDisplay.textContent = "";
     firstOperand = null;
-    operator = null
+    operator = null;
     secondOperand = null;
     result = null;
 }
