@@ -54,12 +54,15 @@ const funcKey = document.querySelectorAll(".function");
 
 numKey.forEach((key) => {
     key.addEventListener("click", () => {
-        if (mainDisplay.textContent === "0" || mainDisplay.textContent === `${result}`) {
-            subDisplay.textContent = "";
-            mainDisplay.textContent = key.textContent;
-            result = null;
-        } else {
-            mainDisplay.textContent += key.textContent;
+        switch (mainDisplay.textContent) {
+            case `${result}`:
+                clearCalculator();
+            default:
+                if (mainDisplay.textContent === "0") {
+                    mainDisplay.textContent = key.textContent;
+                } else {
+                    mainDisplay.textContent += key.textContent;
+                }
         }
     })
 });
