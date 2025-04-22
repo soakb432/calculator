@@ -37,9 +37,17 @@ function operate(operator, firstNum, secondNum) {
         case "*":
             return multiply(firstNum, secondNum);
         case "/":
-            return divide(firstNum, secondNum);
+            if (secondNum === 0) {
+                throw "Division by 0!";
+            } else {
+                return divide(firstNum, secondNum);
+            }
         case "%":
-            return modulo(firstNum, secondNum);
+            if (secondNum === 0) {
+                throw "Division by 0!";
+            } else {
+                return modulo(firstNum, secondNum);
+            }
     }
 }
 
@@ -78,12 +86,12 @@ opKey.forEach((key) => {
         }
         
         if (secondOperand || secondOperand === 0) {
-            if (secondOperand === 0 && (operator === "/" || operator === "%")) {
-                alert(errorMessage);
-                clearCalculator();
-            } else {
+            try {
                 result = operate(operator, firstOperand, secondOperand);
                 firstOperand = result;
+            } catch (error) {
+                alert(errorMessage);
+                clearCalculator();
             }
         }
         
@@ -92,8 +100,8 @@ opKey.forEach((key) => {
             subDisplay.textContent = `${firstOperand} ${operator} `;
             secondOperand = null;
             result = null;
+            mainDisplay.textContent = "";
         }
-        mainDisplay.textContent = "";
     })
 });
 
@@ -101,15 +109,15 @@ eqKey.addEventListener("click", () => {
     let isOperable = ((firstOperand || firstOperand === 0) && (operator !== null) && (mainDisplay.textContent) && (result === null));
     if (isOperable) {
         secondOperand = parseFloat(mainDisplay.textContent);
-        if (secondOperand === 0 && (operator === "/" || operator === "%")) {
-            alert(errorMessage);
-            clearCalculator();
-        } else {
+        try {
             result = operate(operator, firstOperand, secondOperand);
             subDisplay.textContent = `${firstOperand} ${operator} ${secondOperand} =`;
             mainDisplay.textContent = `${result}`;
             firstOperand = null;
             secondOperand = null;
+        } catch (error) {
+            alert(errorMessage);
+            clearCalculator();
         }
     }
 });
