@@ -63,6 +63,8 @@ const funcKey = document.querySelectorAll(".function");
 numKey.forEach((key) => {
     key.addEventListener("click", () => {
         switch (mainDisplay.textContent) {
+            case `${errorMessage}`:
+                break;
             case `${result}`:
                 clearCalculator();
             default:
@@ -77,48 +79,56 @@ numKey.forEach((key) => {
 
 opKey.forEach((key) => {
     key.addEventListener("click", () => {
-        if (mainDisplay.textContent) {
-            if (firstOperand === null) {
-                firstOperand = parseFloat(mainDisplay.textContent);
-            } else if (secondOperand === null) {
-                secondOperand = parseFloat(mainDisplay.textContent);
-            }
-        }
-        
-        if (secondOperand || secondOperand === 0) {
-            try {
-                result = operate(operator, firstOperand, secondOperand);
-                firstOperand = result;
-            } catch (error) {
-                alert(errorMessage);
-                clearCalculator();
-            }
-        }
-        
-        if (firstOperand || firstOperand === 0) {
-            operator = key.textContent;
-            subDisplay.textContent = `${firstOperand} ${operator} `;
-            secondOperand = null;
-            result = null;
-            mainDisplay.textContent = "";
+        switch (mainDisplay.textContent) {
+            case `${errorMessage}` || "":
+                break;
+            default:
+                if (firstOperand === null) {
+                    firstOperand = parseFloat(mainDisplay.textContent);
+                } else if (secondOperand === null) {
+                    secondOperand = parseFloat(mainDisplay.textContent);
+                }
+                
+                if (secondOperand || secondOperand === 0) {
+                    try {
+                        result = operate(operator, firstOperand, secondOperand);
+                        firstOperand = result;
+                    } catch (error) {
+                        mainDisplay.textContent = `${errorMessage}`;
+                        break;
+                    }
+                }
+                
+                if (firstOperand || firstOperand === 0) {
+                    operator = key.textContent;
+                    subDisplay.textContent = `${firstOperand} ${operator} `;
+                    secondOperand = null;
+                    result = null;
+                    mainDisplay.textContent = "";
+                }
         }
     })
 });
 
 eqKey.addEventListener("click", () => {
-    let isOperable = ((firstOperand || firstOperand === 0) && (operator !== null) && (mainDisplay.textContent) && (result === null));
-    if (isOperable) {
-        secondOperand = parseFloat(mainDisplay.textContent);
-        try {
-            result = operate(operator, firstOperand, secondOperand);
-            subDisplay.textContent = `${firstOperand} ${operator} ${secondOperand} =`;
-            mainDisplay.textContent = `${result}`;
-            firstOperand = null;
-            secondOperand = null;
-        } catch (error) {
-            alert(errorMessage);
-            clearCalculator();
-        }
+    switch (mainDisplay.textContent) {
+        case `${errorMessage}` || "":
+            break;
+        default:
+            let isOperable = ((firstOperand || firstOperand === 0) && (operator !== null) && (result === null));
+            if (isOperable) {
+                secondOperand = parseFloat(mainDisplay.textContent);
+                try {
+                    result = operate(operator, firstOperand, secondOperand);
+                    subDisplay.textContent = `${firstOperand} ${operator} ${secondOperand} =`;
+                    mainDisplay.textContent = `${result}`;
+                    firstOperand = null;
+                    secondOperand = null;
+                } catch (error) {
+                    mainDisplay.textContent = `${errorMessage}`;
+                    break;
+                }
+            }
     }
 });
 
