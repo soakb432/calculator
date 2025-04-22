@@ -84,8 +84,12 @@ numKey.forEach((key) => {
 opKey.forEach((key) => {
     key.addEventListener("click", () => {
         switch (mainDisplay.textContent) {
-            case `${errorMessage}` || "":
+            case `${errorMessage}`:
                 break;
+            case "":
+                if (!(firstOperand || firstOperand === 0)) {
+                    break;
+                }
             default:
                 if (firstOperand === null) {
                     firstOperand = parseFloat(mainDisplay.textContent);
@@ -117,7 +121,8 @@ opKey.forEach((key) => {
 
 eqKey.addEventListener("click", () => {
     switch (mainDisplay.textContent) {
-        case `${errorMessage}` || "":
+        case `${errorMessage}`:
+        case "":
             break;
         default:
             let isOperable = ((firstOperand || firstOperand === 0) && (operator !== null) && (result === null));
