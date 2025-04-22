@@ -150,7 +150,7 @@ funcKey.forEach((key) => {
                 clearCalculator();
                 break;
             case "C":
-                clearInput();
+                undoInput();
                 break;
             case "+/-":
                 convertPositiveToNegative();
@@ -173,7 +173,7 @@ function clearCalculator() {
     result = null;
 }
 
-function clearInput() {
+function undoInput() {
     if (result || mainDisplay.textContent === `${result}`) {
         subDisplay.textContent = "";
         result = null;
