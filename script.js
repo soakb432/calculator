@@ -4,6 +4,10 @@ let firstOperand = null;
 let operator = null
 let secondOperand = null;
 let result = null;
+
+// -- ERROR MESSAGES -- //
+
+const errorInstructions =  "[AC] : Reset";
 const errorMessage = "ERROR";
 
 // -- MATH OPERATIONS -- //
@@ -94,6 +98,7 @@ opKey.forEach((key) => {
                         result = operate(operator, firstOperand, secondOperand);
                         firstOperand = result;
                     } catch (error) {
+                        subDisplay.textContent = `${errorInstructions}`;
                         mainDisplay.textContent = `${errorMessage}`;
                         break;
                     }
@@ -125,6 +130,7 @@ eqKey.addEventListener("click", () => {
                     firstOperand = null;
                     secondOperand = null;
                 } catch (error) {
+                    subDisplay.textContent = `${errorInstructions}`;
                     mainDisplay.textContent = `${errorMessage}`;
                     break;
                 }
