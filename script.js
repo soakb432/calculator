@@ -219,3 +219,24 @@ function convertToDecimal() {
         mainDisplay.textContent = "0.";
     }
 }
+
+// -- KEYBOARD -- //
+
+window.addEventListener('keydown', (event) => {
+    console.log(`key=${event.key},code=${event.code}`);
+    switch (event.key) {
+        case "Escape":
+            clearCalculator();
+            break;
+        case "Backspace":
+            undoInput();
+            break;
+        case "'":
+            convertPositiveToNegative();
+            break;
+        case ".":
+            convertToDecimal();
+            break;
+        }
+    }
+)
