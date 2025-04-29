@@ -86,18 +86,18 @@ opKey.forEach((key) => {
         switch (mainDisplay.textContent) {
             case `${errorMessage}`:
                 break;
-            case "":
-                if (!(firstOperand || firstOperand === 0)) {
-                    break;
-                }
             default:
-                if (firstOperand === null) {
-                    firstOperand = parseFloat(mainDisplay.textContent);
-                } else if (secondOperand === null) {
-                    secondOperand = parseFloat(mainDisplay.textContent);
+                if (mainDisplay.textContent) {
+                    if (firstOperand === null) {
+                        firstOperand = parseFloat(mainDisplay.textContent);
+                    } else if (secondOperand === null) {
+                        secondOperand = parseFloat(mainDisplay.textContent);
+                    }
                 }
                 
-                if (secondOperand || secondOperand === 0) {
+                let isOperable = ((firstOperand || firstOperand === 0) && (mainDisplay.textContent) && (operator !== null) && (result === null));
+                if (isOperable) {
+                    secondOperand = parseFloat(mainDisplay.textContent);
                     try {
                         result = operate(operator, firstOperand, secondOperand);
                         firstOperand = result;
@@ -174,17 +174,24 @@ function clearCalculator() {
 }
 
 function undoInput() {
-    if (result || mainDisplay.textContent === `${result}`) {
-        subDisplay.textContent = "";
-        result = null;
-    }
-
-    let currInput = mainDisplay.textContent.split("");
-    if (currInput[0] === "-" && currInput.length === 2) {
-        mainDisplay.textContent = "";
-    } else {
-        currInput.pop();
-        mainDisplay.textContent = currInput.join("");
+    switch (mainDisplay.textContent) {
+        case `${errorMessage}`:
+            subDisplay.textContent = `${firstOperand} ${operator} `;
+            mainDisplay.textContent = "";
+            break;
+        default:
+            if (result || mainDisplay.textContent === `${result}`) {
+                subDisplay.textContent = "";
+                result = null;
+            }
+        
+            let currInput = mainDisplay.textContent.split("");
+            if (currInput[0] === "-" && currInput.length === 2) {
+                mainDisplay.textContent = "";
+            } else {
+                currInput.pop();
+                mainDisplay.textContent = currInput.join("");
+            }
     }
 }
 
