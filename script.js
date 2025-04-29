@@ -120,27 +120,7 @@ opKey.forEach((key) => {
 });
 
 eqKey.addEventListener("click", () => {
-    switch (mainDisplay.textContent) {
-        case `${errorMessage}`:
-        case "":
-            break;
-        default:
-            let isOperable = ((firstOperand || firstOperand === 0) && (operator !== null) && (result === null));
-            if (isOperable) {
-                secondOperand = parseFloat(mainDisplay.textContent);
-                try {
-                    result = operate(operator, firstOperand, secondOperand);
-                    subDisplay.textContent = `${firstOperand} ${operator} ${secondOperand} =`;
-                    mainDisplay.textContent = `${result}`;
-                    firstOperand = null;
-                    secondOperand = null;
-                } catch (error) {
-                    subDisplay.textContent = `${errorInstructions}`;
-                    mainDisplay.textContent = `${errorMessage}`;
-                    break;
-                }
-            }
-    }
+    getResult();
 });
 
 funcKey.forEach((key) => {
@@ -163,6 +143,30 @@ funcKey.forEach((key) => {
 });
 
 // -- FUNCTIONS -- //
+
+function getResult() {
+    switch (mainDisplay.textContent) {
+        case `${errorMessage}`:
+        case "":
+            break;
+        default:
+            let isOperable = ((firstOperand || firstOperand === 0) && (operator !== null) && (result === null));
+            if (isOperable) {
+                secondOperand = parseFloat(mainDisplay.textContent);
+                try {
+                    result = operate(operator, firstOperand, secondOperand);
+                    subDisplay.textContent = `${firstOperand} ${operator} ${secondOperand} =`;
+                    mainDisplay.textContent = `${result}`;
+                    firstOperand = null;
+                    secondOperand = null;
+                } catch (error) {
+                    subDisplay.textContent = `${errorInstructions}`;
+                    mainDisplay.textContent = `${errorMessage}`;
+                    break;
+                }
+            }
+    }
+}
 
 function clearCalculator() {
     mainDisplay.textContent = "";
@@ -225,6 +229,10 @@ function convertToDecimal() {
 window.addEventListener('keydown', (event) => {
     console.log(`key=${event.key},code=${event.code}`);
     switch (event.key) {
+        case "Enter":
+        case "=":
+            getResult()
+            break;
         case "Escape":
             clearCalculator();
             break;
@@ -239,4 +247,4 @@ window.addEventListener('keydown', (event) => {
             break;
         }
     }
-)
+);
