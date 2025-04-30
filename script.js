@@ -66,18 +66,7 @@ const funcKey = document.querySelectorAll(".function");
 
 numKey.forEach((key) => {
     key.addEventListener("click", () => {
-        switch (mainDisplay.textContent) {
-            case `${errorMessage}`:
-                break;
-            case `${result}`:
-                clearCalculator();
-            default:
-                if (mainDisplay.textContent === "0") {
-                    mainDisplay.textContent = key.textContent;
-                } else {
-                    mainDisplay.textContent += key.textContent;
-                }
-        }
+        getNumber(key);
     })
 });
 
@@ -119,9 +108,7 @@ opKey.forEach((key) => {
     })
 });
 
-eqKey.addEventListener("click", () => {
-    getResult();
-});
+eqKey.addEventListener("click", getResult);
 
 funcKey.forEach((key) => {
     key.addEventListener("click", () => {
@@ -143,6 +130,21 @@ funcKey.forEach((key) => {
 });
 
 // -- FUNCTIONS -- //
+
+function getNumber(key) {
+    switch (mainDisplay.textContent) {
+        case `${errorMessage}`:
+            break;
+        case `${result}`:
+            clearCalculator();
+        default:
+            if (mainDisplay.textContent === "0") {
+                mainDisplay.textContent = key.textContent;
+            } else {
+                mainDisplay.textContent += key.textContent;
+            }
+    }
+}
 
 function getResult() {
     switch (mainDisplay.textContent) {
