@@ -84,6 +84,38 @@ keyboard.addEventListener("click", (e) => {
     }
 });
 
+// -- KEYBOARD INPUT -- //
+
+window.addEventListener('keydown', (e) => {
+    console.log(`key=${e.key},code=${e.code}`);
+    switch (e.key) {
+        case "+":
+        case "-":
+        case "*":
+        case "/":
+        case "%":
+            getOperator(e.key)
+            break;
+        case "Enter":
+        case "=":
+            getResult()
+            break;
+        case "Escape":
+            clearCalculator();
+            break;
+        case "Backspace":
+            undoInput();
+            break;
+        case "'":
+            convertPositiveToNegative();
+            break;
+        case ".":
+            convertToDecimal();
+            break;
+        }
+    }
+);
+
 // -- FUNCTIONS -- //
 
 function getNumber(key) {
@@ -233,28 +265,3 @@ function convertToDecimal() {
         mainDisplay.textContent = "0.";
     }
 }
-
-// -- KEYBOARD -- //
-
-window.addEventListener('keydown', (event) => {
-    console.log(`key=${event.key},code=${event.code}`);
-    switch (event.key) {
-        case "Enter":
-        case "=":
-            getResult()
-            break;
-        case "Escape":
-            clearCalculator();
-            break;
-        case "Backspace":
-            undoInput();
-            break;
-        case "'":
-            convertPositiveToNegative();
-            break;
-        case ".":
-            convertToDecimal();
-            break;
-        }
-    }
-);
