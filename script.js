@@ -74,48 +74,13 @@ keyboard.addEventListener("click", (e) => {
         case "number":
             getNumber(target.textContent);
             break;
+        case "operator":
+            getOperator(target.textContent);
+            break;
         case "function":
             getFunction(target.textContent);
             break;
     }
-});
-
-opKey.forEach((key) => {
-    key.addEventListener("click", () => {
-        switch (mainDisplay.textContent) {
-            case `${errorMessage}`:
-                break;
-            default:
-                if (mainDisplay.textContent) {
-                    if (firstOperand === null) {
-                        firstOperand = parseFloat(mainDisplay.textContent);
-                    } else if (secondOperand === null) {
-                        secondOperand = parseFloat(mainDisplay.textContent);
-                    }
-                }
-                
-                let isOperable = ((firstOperand || firstOperand === 0) && (mainDisplay.textContent) && (operator !== null) && (result === null));
-                if (isOperable) {
-                    secondOperand = parseFloat(mainDisplay.textContent);
-                    try {
-                        result = operate(operator, firstOperand, secondOperand);
-                        firstOperand = result;
-                    } catch (error) {
-                        subDisplay.textContent = `${errorInstructions}`;
-                        mainDisplay.textContent = `${errorMessage}`;
-                        break;
-                    }
-                }
-                
-                if (firstOperand || firstOperand === 0) {
-                    operator = key.textContent;
-                    subDisplay.textContent = `${firstOperand} ${operator} `;
-                    secondOperand = null;
-                    result = null;
-                    mainDisplay.textContent = "";
-                }
-        }
-    })
 });
 
 eqKey.addEventListener("click", getResult);
@@ -133,6 +98,42 @@ function getNumber(key) {
                 mainDisplay.textContent = key;
             } else {
                 mainDisplay.textContent += key;
+            }
+    }
+}
+
+function getOperator(key) {
+    switch (mainDisplay.textContent) {
+        case `${errorMessage}`:
+            break;
+        default:
+            if (mainDisplay.textContent) {
+                if (firstOperand === null) {
+                    firstOperand = parseFloat(mainDisplay.textContent);
+                } else if (secondOperand === null) {
+                    secondOperand = parseFloat(mainDisplay.textContent);
+                }
+            }
+            
+            let isOperable = ((firstOperand || firstOperand === 0) && (mainDisplay.textContent) && (operator !== null) && (result === null));
+            if (isOperable) {
+                secondOperand = parseFloat(mainDisplay.textContent);
+                try {
+                    result = operate(operator, firstOperand, secondOperand);
+                    firstOperand = result;
+                } catch (error) {
+                    subDisplay.textContent = `${errorInstructions}`;
+                    mainDisplay.textContent = `${errorMessage}`;
+                    break;
+                }
+            }
+            
+            if (firstOperand || firstOperand === 0) {
+                operator = key;
+                subDisplay.textContent = `${firstOperand} ${operator} `;
+                secondOperand = null;
+                result = null;
+                mainDisplay.textContent = "";
             }
     }
 }
