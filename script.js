@@ -239,31 +239,44 @@ function undoInput() {
                 currInput.pop();
                 mainDisplay.textContent = currInput.join("");
             }
+            break;
     }
 }
 
 function convertPositiveToNegative() {
-    if (result || mainDisplay.textContent === `${result}`) {
-        subDisplay.textContent = "";
-        operator = null;
-        result = null;
-    }
-
-    if (mainDisplay.textContent && result === null) {
-        mainDisplay.textContent = `${mainDisplay.textContent * -1}`;
+    switch (mainDisplay.textContent) {
+        case `${errorMessage}`:
+            break;
+        default:
+            if (result || mainDisplay.textContent === `${result}`) {
+                subDisplay.textContent = "";
+                operator = null;
+                result = null;
+            }
+        
+            if (mainDisplay.textContent && result === null) {
+                mainDisplay.textContent = `${mainDisplay.textContent * -1}`;
+            }
+            break;
     }
 }
 
 function convertToDecimal() {
-    if (result || mainDisplay.textContent === `${result}`) {
-        subDisplay.textContent = "";
-        mainDisplay.textContent = "";
-        result = null;
-    }
-
-    if (mainDisplay.textContent && !mainDisplay.textContent.includes(".")) {
-        mainDisplay.textContent += ".";
-    } else if (mainDisplay.textContent === "") {
-        mainDisplay.textContent = "0.";
+    switch (mainDisplay.textContent) {
+        case `${errorMessage}`:
+            break;
+        default:
+            if (result || mainDisplay.textContent === `${result}`) {
+                subDisplay.textContent = "";
+                mainDisplay.textContent = "";
+                result = null;
+            }
+        
+            if (mainDisplay.textContent && !mainDisplay.textContent.includes(".")) {
+                mainDisplay.textContent += ".";
+            } else if (mainDisplay.textContent === "") {
+                mainDisplay.textContent = "0.";
+            }
+            break;
     }
 }
