@@ -74,6 +74,9 @@ keyboard.addEventListener("click", (e) => {
         case "number":
             getNumber(target.textContent);
             break;
+        case "function":
+            getFunction(target.textContent);
+            break;
     }
 });
 
@@ -117,25 +120,6 @@ opKey.forEach((key) => {
 
 eqKey.addEventListener("click", getResult);
 
-funcKey.forEach((key) => {
-    key.addEventListener("click", () => {
-        switch (key.textContent) {
-            case "AC":
-                clearCalculator();
-                break;
-            case "C":
-                undoInput();
-                break;
-            case "+/-":
-                convertPositiveToNegative();
-                break;
-            case ".":
-                convertToDecimal();
-                break;
-        }
-    })
-});
-
 // -- FUNCTIONS -- //
 
 function getNumber(key) {
@@ -174,6 +158,23 @@ function getResult() {
                     break;
                 }
             }
+    }
+}
+
+function getFunction(key) {
+    switch (key) {
+        case "AC":
+            clearCalculator();
+            break;
+        case "C":
+            undoInput();
+            break;
+        case "+/-":
+            convertPositiveToNegative();
+            break;
+        case ".":
+            convertToDecimal();
+            break;
     }
 }
 
