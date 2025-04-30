@@ -7,7 +7,7 @@ let result = null;
 
 // -- ERROR MESSAGES -- //
 
-const errorInstructions =  "[AC] : Reset";
+const errorInstructions =  "[C] : Undo | [AC] : Reset";
 const errorMessage = "ERROR";
 
 // -- MATH OPERATIONS -- //
@@ -85,7 +85,6 @@ keyboard.addEventListener("click", (e) => {
 // -- KEYBOARD INPUT -- //
 
 window.addEventListener('keydown', (e) => {
-    console.log(`key=${e.key},code=${e.code}`);
     switch (e.key) {
         case "+":
         case "-":
