@@ -60,10 +60,6 @@ function operate(operator, firstNum, secondNum) {
 const keyboard = document.querySelector("#keyboard");
 const mainDisplay = document.querySelector(".display .main");
 const subDisplay = document.querySelector(".display .sub");
-const numKey = document.querySelectorAll(".number");
-const opKey = document.querySelectorAll(".operator");
-const eqKey = document.querySelector(".equal");
-const funcKey = document.querySelectorAll(".function");
 
 keyboard.addEventListener("click", (e) => {
     let target = e.target;
@@ -77,13 +73,16 @@ keyboard.addEventListener("click", (e) => {
         case "operator":
             getOperator(target.textContent);
             break;
+        case "equal":
+            getResult();
+            break;
         case "function":
             getFunction(target.textContent);
             break;
+        default:
+            break;
     }
 });
-
-eqKey.addEventListener("click", getResult);
 
 // -- FUNCTIONS -- //
 
