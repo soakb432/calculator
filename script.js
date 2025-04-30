@@ -63,8 +63,6 @@ const subDisplay = document.querySelector(".display .sub");
 
 keyboard.addEventListener("click", (e) => {
     let target = e.target;
-    console.log(target.textContent)
-    console.log(target.className)
 
     switch (target.className) {
         case "number":
@@ -105,6 +103,11 @@ window.addEventListener('keydown', (e) => {
         case "'":
         case ".":
             getFunction(e.key);
+            break;
+        default:
+            if (e.key >= 0 && e.key <= 9) {
+                getNumber(e.key);
+            }
             break;
         }
     }
