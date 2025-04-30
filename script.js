@@ -228,6 +228,7 @@ function undoInput() {
         default:
             if (result || mainDisplay.textContent === `${result}`) {
                 subDisplay.textContent = "";
+                operator = null;
                 result = null;
             }
         
@@ -244,6 +245,7 @@ function undoInput() {
 function convertPositiveToNegative() {
     if (result || mainDisplay.textContent === `${result}`) {
         subDisplay.textContent = "";
+        operator = null;
         result = null;
     }
 
