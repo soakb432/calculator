@@ -65,6 +65,12 @@ const opKey = document.querySelectorAll(".operator");
 const eqKey = document.querySelector(".equal");
 const funcKey = document.querySelectorAll(".function");
 
+keyboard.addEventListener("click", (e) => {
+    let target = e.target;
+    console.log(target.textContent)
+    console.log(target.className)
+});
+
 numKey.forEach((key) => {
     key.addEventListener("click", () => {
         getNumber(key);
