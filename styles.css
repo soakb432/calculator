@@ -59,7 +59,7 @@ body {
 }
 
 
-.keyboard {
+#keyboard {
     flex: 4;
     width: inherit;
     display: flex;

@@ -57,6 +57,7 @@ function operate(operator, firstNum, secondNum) {
 
 // -- DISPLAY POPULATION -- //
 
+const keyboard = document.querySelector("#keyboard");
 const mainDisplay = document.querySelector(".display .main");
 const subDisplay = document.querySelector(".display .sub");
 const numKey = document.querySelectorAll(".number");
