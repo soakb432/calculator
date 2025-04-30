@@ -69,12 +69,12 @@ keyboard.addEventListener("click", (e) => {
     let target = e.target;
     console.log(target.textContent)
     console.log(target.className)
-});
 
-numKey.forEach((key) => {
-    key.addEventListener("click", () => {
-        getNumber(key);
-    })
+    switch (target.className) {
+        case "number":
+            getNumber(target.textContent);
+            break;
+    }
 });
 
 opKey.forEach((key) => {
@@ -146,9 +146,9 @@ function getNumber(key) {
             clearCalculator();
         default:
             if (mainDisplay.textContent === "0") {
-                mainDisplay.textContent = key.textContent;
+                mainDisplay.textContent = key;
             } else {
-                mainDisplay.textContent += key.textContent;
+                mainDisplay.textContent += key;
             }
     }
 }
