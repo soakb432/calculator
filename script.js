@@ -195,15 +195,12 @@ function getResult() {
 function getFunction(key) {
     switch (key) {
         case "AC":
-        case "Escape":
             clearCalculator();
             break;
         case "C":
-        case "Backspace":
             undoInput();
             break;
         case "+/-":
-        case "'":
             convertPositiveToNegative();
             break;
         case ".":
