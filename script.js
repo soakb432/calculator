@@ -110,26 +110,26 @@ function findButtonByValue(value) {
     return Array.from(buttons).find(btn => btn.value === value);
 }
 
-function getButtonAction(target) {
-    switch (target.className) {
+function getButtonAction(button) {
+    switch (button.className) {
         case "number":
-            getNumber(target.textContent);
+            getNumber(button.textContent);
             break;
         case "operator":
-            getOperator(target.textContent);
+            getOperator(button.textContent);
             break;
         case "equal":
             getResult();
             break;
         case "function":
-            getFunction(target.textContent);
+            getFunction(button.textContent);
             break;
         default:
             break;
     }
 }
 
-function getNumber(key) {
+function getNumber(num) {
     switch (mainDisplay.textContent) {
         case `${errorMessage}`:
             break;
@@ -137,14 +137,14 @@ function getNumber(key) {
             clearCalculator();
         default:
             if (mainDisplay.textContent === "0") {
-                mainDisplay.textContent = key;
+                mainDisplay.textContent = num;
             } else {
-                mainDisplay.textContent += key;
+                mainDisplay.textContent += num;
             }
     }
 }
 
-function getOperator(key) {
+function getOperator(op) {
     switch (mainDisplay.textContent) {
         case `${errorMessage}`:
             break;
@@ -171,7 +171,7 @@ function getOperator(key) {
             }
             
             if (firstOperand || firstOperand === 0) {
-                operator = key;
+                operator = op;
                 subDisplay.textContent = `${firstOperand} ${operator} `;
                 secondOperand = null;
                 result = null;
@@ -204,8 +204,8 @@ function getResult() {
     }
 }
 
-function getFunction(key) {
-    switch (key) {
+function getFunction(func) {
+    switch (func) {
         case "AC":
             clearCalculator();
             break;
