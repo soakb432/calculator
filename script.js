@@ -8,15 +8,26 @@ let result = null;
 // -- KEY TO VALUE MAPPING -- //
 
 const keyMap = {
+    // Numbers
     0: '0', 1: '1', 2: '2', 3: '3', 4: '4',
     5: '5', 6: '6', 7: '7', 8: '8', 9: '9',
 
+    'Numpad0': '0', 'Numpad1': '1', 'Numpad2': '2',
+    'Numpad3': '3', 'Numpad4': '4', 'Numpad5': '5',
+    'Numpad6': '6', 'Numpad7': '7', 'Numpad8': '8',
+    'Numpad9': '9',
+
+    // Operators
     '+': '+', '-': '-', '*': '*',
     '/': '/', '%': '%', '=': '=',
+    'x': '*', 'X': '*',
     'Enter': '=',
 
+    // Functions
     'Escape': 'AC', 'Backspace': 'C',
-    "'": '+/-', '.': '.'
+    'c': 'C', 'C': 'C',
+    's': '+/-', 'S': '+/-',
+    '.': '.', ',': '.'
 }
 
 // -- ERROR MESSAGES -- //
@@ -88,6 +99,7 @@ window.addEventListener('keydown', (e) => {
     const button = findButtonByValue(keyValue);
 
     if (keyValue && button) {
+        e.preventDefault();
         getButtonAction(button);
     }
 });
