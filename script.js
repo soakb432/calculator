@@ -76,9 +76,29 @@ const subDisplay = document.querySelector(".display .sub");
 const keyboard = document.querySelector("#keyboard");
 const buttons = document.querySelectorAll("#keyboard button");
 
-keyboard.addEventListener("click", (e) => {
-    let target = e.target;
+// -- INPUT -- //
 
+keyboard.addEventListener("click", (e) => {
+    const target = e.target;
+    getButtonAction(target);
+});
+
+window.addEventListener('keydown', (e) => {
+    const keyValue = keyMap[e.key];
+    const button = findButtonByValue(keyValue);
+
+    if (keyValue && button) {
+        getButtonAction(button);
+    }
+});
+
+// -- FUNCTIONS -- //
+
+function findButtonByValue(value) {
+    return Array.from(buttons).find(btn => btn.value === value);
+}
+
+function getButtonAction(target) {
     switch (target.className) {
         case "number":
             getNumber(target.textContent);
@@ -95,48 +115,6 @@ keyboard.addEventListener("click", (e) => {
         default:
             break;
     }
-});
-
-// -- KEYBOARD INPUT -- //
-
-window.addEventListener('keydown', (e) => {
-    const keyValue = keyMap[e.key];
-    if (keyValue) console.log(keyValue)
-
-    const button = findButtonByValue(keyValue);
-    if (button) console.log(button)
-
-    switch (e.key) {
-        case "+":
-        case "-":
-        case "*":
-        case "/":
-        case "%":
-            getOperator(e.key)
-            break;
-        case "Enter":
-        case "=":
-            getResult()
-            break;
-        case "Escape":
-        case "Backspace":
-        case "'":
-        case ".":
-            getFunction(e.key);
-            break;
-        default:
-            if (e.key >= 0 && e.key <= 9) {
-                getNumber(e.key);
-            }
-            break;
-        }
-    }
-);
-
-// -- FUNCTIONS -- //
-
-function findButtonByValue(value) {
-    return Array.from(buttons).find(btn => btn.value === value);
 }
 
 function getNumber(key) {
