@@ -94,15 +94,24 @@ keyboard.addEventListener("click", (e) => {
     getButtonAction(target);
 });
 
-window.addEventListener('keydown', (e) => {
+['keydown', 'keyup'].forEach((event) => window.addEventListener(event, (e) => {
     const keyValue = keyMap[e.key];
     const button = findButtonByValue(keyValue);
 
     if (keyValue && button) {
         e.preventDefault();
-        getButtonAction(button);
+        
+        switch (event) {
+            case "keydown":
+                getButtonAction(button);
+                button.classList.add('active');
+                break;
+            case "keyup":
+                button.classList.remove('active');
+                break;
+        }
     }
-});
+}));
 
 // -- FUNCTIONS -- //
 
