@@ -5,6 +5,20 @@ let operator = null
 let secondOperand = null;
 let result = null;
 
+// -- KEY TO VALUE MAPPING -- //
+
+const keyMap = {
+    0: '0', 1: '1', 2: '2', 3: '3', 4: '4',
+    5: '5', 6: '6', 7: '7', 8: '8', 9: '9',
+
+    '+': '+', '-': '-', '*': '*',
+    '/': '/', '%': '%', '=': '=',
+    'Enter': '=',
+
+    'Escape': 'AC', 'Backspace': 'C',
+    "'": '+/-', '.': '.'
+}
+
 // -- ERROR MESSAGES -- //
 
 const errorInstructions =  "[C] : Undo | [AC] : Reset";
@@ -57,9 +71,10 @@ function operate(operator, firstNum, secondNum) {
 
 // -- DISPLAY POPULATION -- //
 
-const keyboard = document.querySelector("#keyboard");
 const mainDisplay = document.querySelector(".display .main");
 const subDisplay = document.querySelector(".display .sub");
+const keyboard = document.querySelector("#keyboard");
+const buttons = document.querySelectorAll("#keyboard button");
 
 keyboard.addEventListener("click", (e) => {
     let target = e.target;
