@@ -100,6 +100,12 @@ keyboard.addEventListener("click", (e) => {
 // -- KEYBOARD INPUT -- //
 
 window.addEventListener('keydown', (e) => {
+    const keyValue = keyMap[e.key];
+    if (keyValue) console.log(keyValue)
+
+    const button = findButtonByValue(keyValue);
+    if (button) console.log(button)
+
     switch (e.key) {
         case "+":
         case "-":
@@ -128,6 +134,10 @@ window.addEventListener('keydown', (e) => {
 );
 
 // -- FUNCTIONS -- //
+
+function findButtonByValue(value) {
+    return Array.from(buttons).find(btn => btn.value === value);
+}
 
 function getNumber(key) {
     switch (mainDisplay.textContent) {
