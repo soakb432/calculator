@@ -129,11 +129,10 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+a:hover, .fa:hover {
     color: #40adcd;
 }
 
-a:active {
+a:active, .fa:active {
     color: #7EC9C6;
 }
