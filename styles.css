@@ -85,6 +85,7 @@ body {
 button {
     flex: 1 1 calc(25% - 10px);
     background-color: var(--key-bg);
+    font-size: 1.7rem;
     border: 0;
     transform: translateY(0);
     transition: all 0.05s ease;
@@ -92,10 +93,6 @@ button {
         inset 0 -3px rgba(0, 0, 0, 0.2),
         inset 0 3px rgba(255, 255, 255, 0.1),
         0 4px var(--shadow-color);
-}
-
-button, .footer {
-    font-size: 1.7rem;
 }
 
 button:active, button.active {
@@ -121,6 +118,7 @@ button:active, button.active, button:hover {
     display: flex;
     align-items: center;
     gap: 10px;
+    font-size: 1.6rem;
     background-color: var(--calc-bg);
     padding: 0px 30px;
 }
