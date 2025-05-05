@@ -123,11 +123,16 @@ button:active, button.active, button:hover {
     padding: 0px 30px;
 }
 
+.fa {
+    transition: transform 0.2s ease;
+}
+
 a {
     text-decoration: none;
 }
 
 a:hover, .fa:hover {
+    transform: scale(1.1);
     color: #40adcd;
 }
 
