@@ -117,8 +117,10 @@ button:active, button.active, button:hover {
 }
 
 .footer {
-    font-size: 4rem;
-    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.7rem;
 }
 
 .fa.fa-github {
